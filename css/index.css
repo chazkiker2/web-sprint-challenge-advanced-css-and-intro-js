@@ -170,6 +170,9 @@ button:hover{
     font-size: 4rem;
     font-weight: 600;
   }
+  .title-container hr {
+    width: 100%;
+  }
 
   /* styles for artist section */
   .artists-container {

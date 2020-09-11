@@ -266,11 +266,27 @@ const artists20thCentury = get20s(artists);
  * For example, if removeArtist is invoked with the data and the number 0,
  * it will remove Amedeo Modigliani from our dataset and log the number 19. 
  * 
- * Note that sucessfully invoking this function multiple times without refreshing your browser will continuously remove artists from the array until there are none left. If you refresh your browser, the data will reset.  
+ * Note that sucessfully invoking this function multiple times without refreshing your browser will continuously remove artists from the array until there are none left. 
+ * If you refresh your browser, the data will reset.  
 */
-function removeArtist(/*code here*/) {
-    /* code here */
+/**
+ * Removes an element from the given array at the specified index
+ * @param {Array} arr 
+ * @param {number} index 
+ * @returns true if item was successfully deleted, false if item was NOT deleted
+ */
+function removeArtist(arr, index) {
+    if (index < arr.length && arr[index]) {
+      const removed = arr.splice(index, 1);
+      console.log(`After removing element at index ${index}, your array is the following length: ${arr.length}`);
+      return true; //return true if an item was successfully deleted
+    } else {
+      console.log("Invalid arguments provided. No item deleted, your array is still the following length: ${arr.length}");
+      return false; //return false if an item was NOT deleted
+    }
   }
+  const testRemoveArtist = removeArtist(artists, artists.length-1);
+  // console.log(testRemoveArtist);
   
  
 

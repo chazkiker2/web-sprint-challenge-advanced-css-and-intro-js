@@ -242,17 +242,27 @@ function getArtistByIndex(array, index) {
   example born in 1901 and died in 1959 - included / born in 1889 and died in 1925 not included - should return ["Salvador Dali", "Frida Kahlo"]*/
 
 function get20s(data){
-  const artistNames = [];
-  for (let i=0; i<data.length; i++) {
-    const currentArtist = data[i];
-    const years = currentArtist.years.split(" - ");
-    // const yearMin = years[0];
-    // const yearMax = years[1];
+  // ORIGINAL (BEFORE REFACTORING)
+  // const artistNames = [];
+  // for (let i=0; i<data.length; i++) {
+  //   const currentArtist = data[i];
+  //   const years = currentArtist.years.split(" - ");
+  //   // const yearMin = years[0];
+  //   // const yearMax = years[1];
+  //   if (years[0] >= 1900 && years[1] <= 2000) {
+  //     artistNames.push(currentArtist.name);
+  //   }
+  // }
+  // return artistNames;
+
+  // REFACTORED FOR STRETCH 3
+  const a20s = data.map( artist => {
+    const years = artist.years.split(" - ");
     if (years[0] >= 1900 && years[1] <= 2000) {
-      artistNames.push(currentArtist.name);
+      return artist.name;
     }
-  }
-  return artistNames;
+  });
+  return a20s;
 }
 const artists20thCentury = get20s(artists);
 // console.log(artists);
@@ -308,7 +318,6 @@ function addArtist(info){
     console.log("Inputted information must be an object");
     return null;
   }
-
   artists.push(info);
   return artists;
 }
@@ -349,7 +358,7 @@ function lotsOfArt(arr){
   });
   return artists100Plus;
 }
-console.log(lotsOfArt(artists));
+// console.log(lotsOfArt(artists));
 
 
 
@@ -377,17 +386,34 @@ The function should console.log 50 chunks of HTML code that match the structure 
 ‼️ You do **NOT** need to get these to display on your page, but you can copy and paste the result into your HTML file if you'd like to see what that would look like. */
 
 function getHTML(data){
-  
-  for (let i=0; i<data.length; i++) {
-    const artist = data[i];
-    const nameSplit = artist.name.split(" ");
-    const formatName = nameSplit.join("-");
-    // const formatNameUnderscore = nameSplit.join("_");
+  // ORIGINAL METHOD
+  // for (let i=0; i<data.length; i++) {
+  //   const artist = data[i];
+  //   const nameSplit = artist.name.split(" ");
+  //   const formatName = nameSplit.join("-");
+  //   // const formatNameUnderscore = nameSplit.join("_");
+  //   console.log(
+  //     `\n\n
+  //     \n<div id="artist">
+  //     \n<div class="image">
+  //         \n<img src="./assets/${formatName}.jpg"/>
+  //     \n</div>
+  //     \n<div class = "name">
+  //        \n<a href="${artist.wikipedia}"> ${artist.name}</a>
+  //     \n</div>
+  //     \n<div class = "bio">${artist.bio}</div>
+  //     \n</div>`
+  //   );
+  // }
+
+  // REFACTORED FOR STRETCH 3
+  data.forEach( artist => {
+    const formatName = artist.name.split(" ").join("-");
     console.log(
       `\n\n
       \n<div id="artist">
       \n<div class="image">
-          \n<img src="./assets/${formatName}.jpg"/>
+          \n<img src="assets/${formatName}.jpg"/>
       \n</div>
       \n<div class = "name">
          \n<a href="${artist.wikipedia}"> ${artist.name}</a>
@@ -395,9 +421,9 @@ function getHTML(data){
       \n<div class = "bio">${artist.bio}</div>
       \n</div>`
     );
-  }
+  });
 }
-// getHTML(artists);
+getHTML(artists);
 
 
 /* STRETCH 2: Create a function called `randomize` that takes a data array as an argument and returns a the same array in a randomized order. */
@@ -419,7 +445,7 @@ function randomize(arr){
   }
   return arr;
 }
-console.log(randomize(artists));
+// console.log(randomize(artists));
 
 
  /* STRETCH 3: Use advanced array methods (.map, .reduce, .filer) to refactor your MVP code (create an array of all artists born in the 1900s with .filter, for example) */

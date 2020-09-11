@@ -332,16 +332,24 @@ and returns an array with names of artists who painted more than 100 paintings.
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ..."Albrecht Dürer"]*/
 
 function lotsOfArt(arr){
-  const plus100 = [];
-  for (let i=0; i<arr.length; i++) {
-    const currentArtist = arr[i];
-    if (currentArtist.paintings >= 100) 
-      plus100.push(currentArtist.name);
-    
-  }
-  return plus100;
+  // ORIGINAL
+  // const plus100 = [];
+  // for (let i=0; i<arr.length; i++) {
+  //   const currentArtist = arr[i];
+  //   if (currentArtist.paintings >= 100) 
+  //     plus100.push(currentArtist.name);
+  // }
+  // return plus100;
+
+  // REFACTORED 
+  const artists100Plus = arr.map( artist => {
+      if (artist.paintings >= 100) {
+        return artist.name;
+      }
+  });
+  return artists100Plus;
 }
-// console.log(lotsOfArt(artists));
+console.log(lotsOfArt(artists));
 
 
 
@@ -398,6 +406,8 @@ function randomize(arr){
   // FISHER-YATES SHUFFLE
   let currentIndex = arr.length;
   let tempVal, randomIndex;
+
+  
 
   while (0 !== currentIndex) {
     randomIndex = Math.floor(Math.random() * currentIndex); //whole number 0–arr.length

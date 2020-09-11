@@ -23,9 +23,19 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. How would you describe acessibility on the web to someone new to programming?
+    Web accessibility is the practice (or art, depending on your perspective) of creating functionality in websites that allows ALL USERS—regardless of their circumstances—a high quality experience. Ultimately, accessibility is the cornerstone of web equality. If a site is only developed for the de facto user, the outcome is that anyone on the web with limiting abilities (or even just custom preferences, a lot of the time) cannot reach (access) the material on this site. 
+    When websites are developed to benefit EVERYONE and ANYONE, the result is a site that (first and foremost) serves clients with disabilities. However, an accessible site lends not only to niche circumstances but also to other groups who might have altered preferences (i.e., larger font-size, screen reader, slow connection, etc.) 
+
 2. Talk about 3 different things you can do to ensure your website is accessible. 
+    A.	Semantic HTML. Not only does semantic HTML allow anyone with hindered sight to navigate through a site with greater ease, it also improves the findability of said site. Screen readers and search engines will understand information about the structure of your site. (Also, semantic HTML is a huge uptick in code hygiene—every great programmer who knows what they're doing values this immensely.)
+    B.	Colors!! A great number of people are colorblind (including myself!). Choosing colors that won't pair colors commonly difficult for colorblind people to see is a really easy way to make someone's experience better.
+    C.	Responsive units. Responsive units allow for people who need a larger font, different screen size, etc. to interact with your website more easily. (Additionally, responsive units allow for easier development in reactive websites, so this is a must regardless!) 
+
 3. How would you explain the concept of a variable to someone new to programming?
+    A variable in programming is almost like placeholder that contains a piece of information. That information may be a number, a sentence, a name, a color, whatever. Variables allow programmers to change the assigned value depending on certain conditions.  
+
 4. What is the purpose of using functions in code?
+    Functions are like a set of instructions to the computer. They are used to create and carry out some specific task. Functions help avoid repetitive code (minimizing repeatability is everything). Additionally, functions allow for a logical structure of a program. 
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 

@@ -368,11 +368,28 @@ The function should console.log 50 chunks of HTML code that match the structure 
 
 ‼️ You do **NOT** need to get these to display on your page, but you can copy and paste the result into your HTML file if you'd like to see what that would look like. */
 
-function getHTML(/* Code here */){
-
-    /* Code here */
-
+function getHTML(data){
+  
+  for (let i=0; i<data.length; i++) {
+    const artist = data[i];
+    const nameSplit = artist.name.split(" ");
+    const formatName = nameSplit.join("-");
+    // const formatNameUnderscore = nameSplit.join("_");
+    console.log(
+      `\n\n
+      \n<div id="artist">
+      \n<div class="image">
+          \n<img src="./assets/${formatName}.jpg"/>
+      \n</div>
+      \n<div class = "name">
+         \n<a href="${artist.wikipedia}"> ${artist.name}</a>
+      \n</div>
+      \n<div class = "bio">${artist.bio}</div>
+      \n</div>`
+    );
   }
+}
+getHTML(artists);
 
 
 /* STRETCH 2: Create a function called `randomize` that takes a data array as an argument and returns a the same array in a randomized order. */

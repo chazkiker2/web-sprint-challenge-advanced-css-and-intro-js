@@ -248,7 +248,7 @@ function get20s(data){
     const years = currentArtist.years.split(" - ");
     // const yearMin = years[0];
     // const yearMax = years[1];
-    if (years[0] >= 1900 && years[1] <=2000) {
+    if (years[0] >= 1900 && years[1] <= 2000) {
       artistNames.push(currentArtist.name);
     }
   }
@@ -285,7 +285,7 @@ function removeArtist(arr, index) {
       return false; //return false if an item was NOT deleted
     }
   }
-  const testRemoveArtist = removeArtist(artists, artists.length-1);
+  // const testRemoveArtist = removeArtist(artists, artists.length-1);
   // console.log(testRemoveArtist);
   
  
@@ -303,11 +303,25 @@ bio: Add 1-2 sentences (or use lorem ipsum)
 
 At the end, this function should return the new array with information added"*/
 
-function addArtist(/* Code here */){
-
-    /* Code here */
-
+function addArtist(info){
+  if (typeof info !== "object") {
+    console.log("Inputted information must be an object");
+    return null;
   }
+
+  artists.push(info);
+  return artists;
+}
+
+const myInfo = {
+  id: artists.length, //this is set to artists.length to make the id flexible & consistent with the array (regardless of previous function invocations)
+  name: "Chaz",
+  years: "2000 – current day",
+  genre: "Web Design",
+  bio: "lorem ipsum"
+};
+// console.log(addArtist(myInfo));
+
 
 /* Task 7: Create a function called lotsOfArt() that takes one argument: 
 
@@ -317,11 +331,17 @@ and returns an array with names of artists who painted more than 100 paintings.
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ..."Albrecht Dürer"]*/
 
-function lotsOfArt(/* Code here */){
-
-  /* Code here */
-
+function lotsOfArt(arr){
+  const plus100 = [];
+  for (let i=0; i<arr.length; i++) {
+    const currentArtist = arr[i];
+    if (currentArtist.paintings >= 100) 
+      plus100.push(currentArtist.name);
+    
+  }
+  return plus100;
 }
+// console.log(lotsOfArt(artists));
 
 
 

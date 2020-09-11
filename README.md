@@ -22,7 +22,7 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
-1. How would you describe acessibility on the web to someone new to programming?
+1. How would you describe accessibility on the web to someone new to programming?
     Web accessibility is the practice (or art, depending on your perspective) of creating functionality in websites that allows ALL USERS—regardless of their circumstances—a high quality experience. Ultimately, accessibility is the cornerstone of web equality. If a site is only developed for the de facto user, the outcome is that anyone on the web with limiting abilities (or even just custom preferences, a lot of the time) cannot reach (access) the material on this site. 
     When websites are developed to benefit EVERYONE and ANYONE, the result is a site that (first and foremost) serves clients with disabilities. However, an accessible site lends not only to niche circumstances but also to other groups who might have altered preferences (i.e., larger font-size, screen reader, slow connection, etc.) 
 

@@ -1,0 +1,183 @@
+@import "./reset";
+
+@mixin flexCenter() {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* @include flexCenter() */
+
+@mixin flexNow($display, $justify, $align, $direction) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+/* 
+@extend header; 
+use as a property to inherit all properties of specified element or callout.
+*/
+
+// Sass allows calculations via - + / * =
+
+$borderColor: #626262;
+
+/* * {
+  border: 1px solid gray;
+} */
+
+/* GENERAL STYLES */
+@import "./_generalStyles";
+
+
+/*HEADER STYLES */
+header {
+  @include flexNow(flex, center, stretch, row);
+  // display: flex;
+  // justify-content: center;
+
+  nav {
+    width: 30%;
+    // display: flex;
+    // justify-content: space-evenly;
+    @include flexNow(flex, space-evenly, stretch, row);
+    margin-top: 5%;
+
+    a {
+      color: $borderColor;
+    }
+
+    span {
+      border-left: 3px solid $borderColor;
+    }
+  }
+}
+
+/*Title Section Styles*/
+.title-container {
+  @include flexNow(flex, center, stretch, row);
+  // display: flex;
+  flex-wrap: wrap;
+  // justify-content: center;
+
+  div {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/John_Martin_-_The_Plains_of_Heaven_-_Google_Art_Project.jpg/1920px-John_Martin_-_The_Plains_of_Heaven_-_Google_Art_Project.jpg');
+    background-position: center;
+    color: white;
+    width: 80%;
+    @include flexNow(flex, center, center, column);
+    flex-wrap: nowrap;
+    height: 60vh;
+    margin: 5% 0;
+
+    &:hover {
+      opacity: 80%;
+    }
+  }
+
+  hr {
+    width: 80%;
+  }
+}
+
+button {
+  padding: 1% 3%;
+  font-size: 1.6rem;
+  border-radius: 6px;
+  border: 2px solid $borderColor;
+  box-shadow: 2px 2px 1px $borderColor;
+  transition: 2s;
+
+  &:hover {
+    background-color: $borderColor;
+    border: 2px solid white;
+    color: white;
+    box-shadow: 2px 2px 1px white;
+  }
+}
+
+/*Artists Section Styles */
+.artists-container {
+  @include flexNow(flex, space-around, stretch, column);
+  // display: flex;
+  // justify-content: space-around;
+  width: 80%;
+  margin: 0 auto;
+
+  .artist {
+    width: 40%;
+    text-align: center;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+
+
+@media (max-width: 500px) {
+
+  /* styles for navbar and header */
+  header {
+    justify-content: center;
+
+    nav {
+      width: 60%;
+      justify-content: space-evenly;
+      margin: 3rem 0;
+
+      a {
+        display: inline-block;
+        width: 30%;
+        height: 2.5rem;
+        line-height: 1;
+        text-align: center;
+      }
+    }
+  }
+
+
+  /* styles for hero image with text and button */
+  .title-container div {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 40vh;
+    margin: 0;
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 600;
+    }
+
+    hr {
+      width: 100%;
+    }
+  }
+
+  /* styles for artist section */
+  .artists-container {
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90%;
+
+    .artist {
+      width: 100%;
+
+      img {
+        height: 22rem;
+        width: auto;
+      }
+
+      .bio {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+}
